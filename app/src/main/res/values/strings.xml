@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SOS App</string>
+    <string name="sos_helper_number">SOS helper number</string>
+    <string name="sosauto">SOS Number</string>
+    <string name="saveS">Save Settings</string>
+    <string name="sos_number">SOS Number :</string>
+    <string name="sosMain">SOS</string>
+</resources>
