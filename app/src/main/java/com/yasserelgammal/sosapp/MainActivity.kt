@@ -88,7 +88,9 @@ class MainActivity : AppCompatActivity() {
         //Retrieve data from SharedPref
         val myPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
         val sosNum =  myPref.getString("sosNumber","")
-
+        if (sosNum == ""){
+            Toast.makeText(applicationContext,"Go first to Setting and set a number",Toast.LENGTH_LONG).show()
+        }else{
         val sentIntent = PendingIntent.getBroadcast(this, 0, Intent("SMS_SENT"), 0)
         val deliveredIntent = PendingIntent.getBroadcast(this, 0, Intent("SMS_DELIVERED"), 0)
 
@@ -96,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         mgrSms.sendTextMessage(sosNum,null,"Help, location is: \n https://maps.google.com/?q=$lat,$lon", sentIntent, deliveredIntent)
 
         Toast.makeText(applicationContext,"Message sent !",Toast.LENGTH_LONG).show()
+            }
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
